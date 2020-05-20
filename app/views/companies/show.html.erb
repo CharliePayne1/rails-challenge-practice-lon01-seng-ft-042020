@@ -1,0 +1,22 @@
+<h1><%= @company.name %></h1>
+<% @company.offices.each do |office| %>
+Offices on floor no. <%= office.floor %> in <%= link_to office.building_name, building_path(office.building) %> building.
+<br>
+<br>
+<%end%>
+
+<h2>Employees</h2>
+Total Employees: <%= @company.employees.count %>
+<br>
+<br>
+All Employees:
+<% @company.employees.each do |employee| %>
+<ul>
+<li><%= employee.name %></li>
+</ul>
+<%end%>
+Total Rent:
+<strong>£<%= @company.total_rent %></strong>
+<br>
+<br>
+<%= button_to 'Delete Company', @company, method: :delete, data: { confirm: 'Are you sure?' } %>

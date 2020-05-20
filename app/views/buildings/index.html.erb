@@ -1,0 +1,16 @@
+<h1>All Flatiron Buildings</h1>
+<% Building.all.each do |building| %>
+<h2><%= building.name %></h2>
+<br>
+<strong>Companies:</strong>
+<br>
+<br>
+<% building.companies.uniq.each do |office| %>
+<ul>
+<li><%= office.name %></li>
+</ul>
+<br>
+<%end%>
+Total Rent: £<%= building.total_rent %>
+<br>
+<%end%>
